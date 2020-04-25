@@ -22,7 +22,7 @@ namespace ConsoleCalculator
             }
             else
             {
-                throw new ArgumentOutOfRangeException("operation","Non recognized operation");
+                throw new ArgumentOutOfRangeException("operation","Non recognized operations");
             }
         }
 

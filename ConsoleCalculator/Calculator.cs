@@ -23,9 +23,10 @@ namespace ConsoleCalculator
                 return Divide(val1, val2);
 
                 }
-                catch (Exception)
-                {
 
+                catch (Exception ex)
+                {
+                    //Retrowing exeption and preserving stack trace
                     throw ;
                 }
                 

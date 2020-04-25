@@ -23,10 +23,10 @@ namespace ConsoleCalculator
                 return Divide(val1, val2);
 
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
 
-                    throw ex;
+                    throw ;
                 }
                 
             }

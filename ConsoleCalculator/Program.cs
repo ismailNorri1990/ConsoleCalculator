@@ -15,11 +15,12 @@ namespace ConsoleCalculator
 
             try
             {
-                var result = divide.Calculate(input1, input2, operation);
+                var result = divide.Calculate(input1, input2, null);
                 Console.WriteLine(result);
             }
 
-            catch (ArgumentNullException ex)
+            //When Filter the exception to throw
+            catch (ArgumentNullException ex) when (ex.ParamName == "operation")
             {
                 //Log.Error(ex);
                 Console.WriteLine($"This is {ex}");

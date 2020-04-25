@@ -27,7 +27,11 @@ namespace ConsoleCalculator
                 catch (Exception ex)
                 {
                     //Retrowing exeption and preserving stack trace
-                    throw ;
+                    //throw;
+
+
+                    //Wrapping exception in More general Type of exception
+                 throw new ArithmeticException("An Error occured during calculation",ex);
                 }
                 
             }

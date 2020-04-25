@@ -21,18 +21,16 @@ namespace ConsoleCalculator
                 var result = divide.Calculate(input1, input2, operation);
                 Console.WriteLine(result);
             }
-
-            //When Filter the exception to throw
-            catch (ArgumentNullException ex) when (ex.ParamName == "operation")
+            //Custom Exception
+            catch (CalculationOperationNotSupportedException ex)
             {
-                //Log.Error(ex);
-                Console.WriteLine($"This is {ex}");
+                Console.WriteLine(ex);
             }
 
-            catch (ArgumentOutOfRangeException ex)
+            //Custom Exception
+            catch (CalculationException ex)
             {
-                //Log.Error(ex);
-                Console.WriteLine($"This is {ex}");
+                Console.WriteLine(ex);
             }
 
             catch (Exception ex)

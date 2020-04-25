@@ -24,20 +24,18 @@ namespace ConsoleCalculator
 
                 }
 
-                catch (Exception ex)
+                catch (ArithmeticException ex)
                 {
-                    //Retrowing exeption and preserving stack trace
-                    //throw;
-
-
-                    //Wrapping exception in More general Type of exception
-                 throw new ArithmeticException("An Error occured during calculation",ex);
+           
+                    //Custom exception with innnerException
+                 throw new CalculationException("An error occured during division",ex);
                 }
                 
             }
             else
             {
-                throw new ArgumentOutOfRangeException("operation","Non recognized operations");
+                //Custom Exception
+                throw new CalculationOperationNotSupportedException(operation);
             }
         }
 

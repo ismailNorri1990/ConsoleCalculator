@@ -6,6 +6,9 @@ namespace ConsoleCalculator
     {
         static void Main(string[] args)
         {
+            AppDomain currentAppDomain = AppDomain.CurrentDomain;
+            currentAppDomain.UnhandledException += new UnhandledExceptionEventHandler(HandleException);
+
             var divide = new Calculator();
 
             var input1 = int.Parse(Console.ReadLine());
@@ -15,7 +18,7 @@ namespace ConsoleCalculator
 
             try
             {
-                var result = divide.Calculate(input1, input2, null);
+                var result = divide.Calculate(input1, input2, operation);
                 Console.WriteLine(result);
             }
 
@@ -46,6 +49,11 @@ namespace ConsoleCalculator
             
 
             Console.ReadLine();
+        }
+
+        private static void HandleException(object sender, UnhandledExceptionEventArgs e)
+        {
+            Console.WriteLine($"Sorry there was a problem and we must close. Details : {e.ExceptionObject}");
         }
     }
 }

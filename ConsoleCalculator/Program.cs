@@ -15,16 +15,32 @@ namespace ConsoleCalculator
 
             try
             {
-                var result = divide.Calculate(input1, input2, null);
+                var result = divide.Calculate(input1, input2, operation);
                 Console.WriteLine(result);
             }
+
+            catch (ArgumentNullException ex)
+            {
+                //Log.Error(ex);
+                Console.WriteLine($"This is {ex}");
+            }
+
+            catch (ArgumentOutOfRangeException ex)
+            {
+                //Log.Error(ex);
+                Console.WriteLine($"This is {ex}");
+            }
+
             catch (Exception ex)
             {
 
                 Console.WriteLine($"This is {ex}");
             }
-            
 
+            finally
+            {
+                Console.WriteLine("----Finaly-----");
+            }
 
             
 

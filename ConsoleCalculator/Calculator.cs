@@ -13,12 +13,22 @@ namespace ConsoleCalculator
             //    throw new NullReferenceException("operation");
             //}
 
-            string nonNullOperation = operation ?? throw new NullReferenceException(nameof(operation));
+            string nonNullOperation = operation ?? throw new ArgumentNullException(nameof(operation));
 
 
             if (nonNullOperation == "/")
             {
+                try
+                {
                 return Divide(val1, val2);
+
+                }
+                catch (Exception ex)
+                {
+
+                    throw ex;
+                }
+                
             }
             else
             {
